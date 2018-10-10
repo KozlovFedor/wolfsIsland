@@ -1,11 +1,14 @@
-import QtQuick 2.0
+import QtQuick 2.9
+
 
 Rectangle {
-    id: cell
+    id: background
+
+    implicitWidth: 30
+    implicitHeight: 30
+    //border.width: 1
 
     property int grassLevel
-
-    width: 50
-    height: 50
-    color: Qt.rgba(1 - (grassLevel / 3), 1, 1 - (grassLevel / 3), 1)
+    property var colorDict: {0: "#ffffff", 1: "#ddffdd", 2: "#bbffbb", 3: "#99ff99"}
+    color: colorDict[grassLevel]
 }
