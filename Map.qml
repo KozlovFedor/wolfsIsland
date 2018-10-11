@@ -8,6 +8,7 @@ import Map 1.0
 ColumnLayout {
     Rectangle {
         id: background
+        // FIXME: QML Rectangle: Binding loop detected for property "width"
         width: childrenRect.width + 1
         height: childrenRect.height + 1
         color: "#000000"
@@ -38,6 +39,6 @@ ColumnLayout {
 
     Button {
         text: qsTr("Next step")
-        onClicked: map.nextStepButtonPressed()
+        onClicked: mMap.nextStepButtonPressed()
     }
 }

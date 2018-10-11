@@ -82,6 +82,11 @@ void MapModel::setMap(Map *map)
     if (mMap) {
         beginInsertRows(QModelIndex(), 0, mMap->cells().size());
         endInsertRows();
+        connect(mMap, &Map::postNextStepExecution, this, [=]() {
+            QModelIndex first = createIndex(0, 0);
+            QModelIndex last = createIndex(mMap->cells().size(), 0);
+            emit dataChanged(first, last);
+        });
     }
 
     endResetModel();

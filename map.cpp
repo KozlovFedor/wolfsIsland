@@ -23,7 +23,7 @@ bool Map::setCellAt(unsigned index, const Cell &cell)
 
 void Map::executeNextStep()
 {
-    for (auto cell: mCells) {
+    for (auto &cell: mCells) {
         if (cell.grassLevel < 3)
             cell.grassLevel++;
     }
